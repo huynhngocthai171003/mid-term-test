@@ -88,39 +88,35 @@ main {
 </head>
 <body>
     <main class="bg-white mx-auto mb-5 p-5 rounded-4">
-  <h3 class="mb-5"><b>KIỂM TRA CUỐI KỲ PYTHON C</b></h3>
+  <h3 class="mb-5"><b>KIỂM TRA KIẾN THỨC PYHTON CƠ BẢN</b></h3>
   <section class="link p-5 rounded-4 mb-4">
     <h3>Chúc các bạn làm bài kiểm tra tốt ❤️</h3>
-    <input type="text" class="rounded p-3 bg-white" value="https://forms.gle/7U1WXWpwW92EVsJJA" disabled>
+    <input type="text" class="rounded p-3 bg-white" value="https://docs.google.com/forms/d/e/1FAIpQLSeD1Wce6kCFuv_eKfzTosK0eiJgPYljgMLZ9_sEzQJwCzEZuQ/viewform" disabled>
     <button class="p-3 rounded border-0">Copy link</button>
   </section>
 
-  <span class="permission d-block mb-4">Mã lớp: PYC01</span>
+  <span class="permission d-block mb-4"></span>
 
   
+<script>
+  document.querySelector("button").addEventListener("click", function () {
+    const button = this;
+    const input = document.querySelector("input");
 
-  <script>
-    document.querySelector("button").addEventListener("click", function () {
-  const button = this;
-  const input = document.querySelector("input");
+    // Copy text bằng Clipboard API
+    navigator.clipboard.writeText(input.value)
+      .then(() => {
+        button.textContent = "Copied";
+        setTimeout(() => {
+          button.textContent = "Copy link";
+        }, 1000);
+      })
+      .catch(err => {
+        console.error("Copy thất bại: ", err);
+      });
+  });
+</script>
 
-  // Select the text inside the input field
-  input.select();
-  input.setSelectionRange(0, 99999); // For mobile devices
-
-  // Copy the text to clipboard
-  document.execCommand("copy");
-
-  // Change button text to "Copied"
-  button.textContent = "Copied";
-
-  // After 1 seconds, change the text back to "Copy link"
-  setTimeout(function () {
-    button.textContent = "Copy link";
-  }, 1000);
-});
-
-  </script>
 </main>
 </body>
 </html>
